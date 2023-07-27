@@ -1,5 +1,5 @@
-import { DataTypes } from "sequelize";
-import sequelize  from "../config/bd.config.js";
+const { DataTypes } = require ("sequelize");
+const sequelize  = require ("../config/bd.config.js");
 
 const User = sequelize.define(
     "users" , {
@@ -45,4 +45,4 @@ const User = sequelize.define(
     }
 );
 
-export default User;
+module.exports = { User }

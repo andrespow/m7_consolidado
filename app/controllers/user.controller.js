@@ -1,7 +1,7 @@
-import Bootcamp from "../models/bootcamp.model.js";
-import User from "../models/user.model.js";
+const Bootcamp = require ("../models/bootcamp.mod");
+const User = require ("../models/user.model.js");
 
-export const createUser = async (req, res) => {
+const createUser = async (req, res) => {
     try {
         const user = await User.create({
             firstName: req.body.firstName,
@@ -19,7 +19,7 @@ export const createUser = async (req, res) => {
     }
 };
 
-export const findUserById = async (req, res) => {
+const findUserById = async (req, res) => {
     try {
         const userId = req.params.userId;
         const user = await User.findByPk(userId, {
@@ -41,7 +41,7 @@ export const findUserById = async (req, res) => {
     }
 };
 
-export const findAll = async (req, res) => {
+const findAll = async (req, res) => {
     try {
         const users = await User.findAll({
             include: [{
@@ -62,7 +62,7 @@ export const findAll = async (req, res) => {
     }
 };
 
-export const updateUserById = async (req, res) => {
+const updateUserById = async (req, res) => {
     try {
         const userId = req.params.userId;
         const { firstName, lastName } = req.body;
@@ -84,7 +84,7 @@ export const updateUserById = async (req, res) => {
     }
 };
 
-export const deleteUserById = async (req, res) => {
+const deleteUserById = async (req, res) => {
     try {
         const userId = req.params.userId;
         const user = await User.destroy({ where: { id: userId } });
@@ -99,7 +99,6 @@ export const deleteUserById = async (req, res) => {
             error: "Ha surgido un problema mientras se eliminaba el usuario" , error
         });
         
-    }
-};
+    }}
 
-
+module.exports = { createUser, findUserById, updateUserById, findAll, deleteUserById }

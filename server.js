@@ -1,7 +1,7 @@
-import sequelize from './app/config/bd.config.js';
-const db = require('./app/models')
-const userController = require('./app/controllers/user.controller')
-const bootcampController = require('./app/controllers/bootcamp.controller')
+const sequelize = require ('./app/config/bd.config.js');
+const db = require ('./app/models');
+const userController = require ('./app/controllers/user.controller');
+const bootcampController = require ('./app/controllers/bootcamp.controller');
 
 
 const main = async () => {

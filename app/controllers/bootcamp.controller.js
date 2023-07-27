@@ -1,11 +1,11 @@
-import Bootcamp from "../models/bootcamp.model.js";
-import User from "../models/user.model.js";
+const Bootcamp = require ("../models/bootcamp.model.js");
+const User = require ("../models/user.model.js");
 
 
 
 //CREAR BOOTCAMP
 
-export const createBootcamp = async (req,res) => {
+const createBootcamp = async (req,res) => {
     try {
         let { title, cue, description } = req.body;
         const nuevoBootcamp = await Bootcamp.create({
@@ -28,7 +28,7 @@ export const createBootcamp = async (req,res) => {
 
 //LISTAR BOOTCAMP POR ID
 
-export const findById = async (req,res) => {
+const findById = async (req,res) => {
     try {
         const bootcamps = await Bootcamp.findByPk(req.params.Id, {
             include: [{
@@ -59,7 +59,7 @@ export const findById = async (req,res) => {
 
 // AGREGAR USUARIO A BOOTCAMP
 
-export const addUser = async (req, res) => {
+const addUser = async (req, res) => {
     try {
         const bootcampId = req.params.bootcampId;
         const usuariosrId = req.body.usuariosrId;
@@ -96,7 +96,7 @@ export const addUser = async (req, res) => {
 
 // LISTAR USUARIOS y BOOTCAMP
 
-export const findAll = async (req, res) => {
+const findAll = async (req, res) => {
     try {
         const bootcamps = await Bootcamp.findAll({
             include: [{
@@ -120,3 +120,5 @@ export const findAll = async (req, res) => {
         });
     }
 };
+
+module.exports = { createBootcamp, findById, addUser, findAll }

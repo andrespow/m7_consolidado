@@ -1,5 +1,5 @@
-const dbConfig = require('../config/bd.config')
-const Sequelize = require('sequelize')
+const dbConfig = require ('../config/bd.config');
+const Sequelize = require ('sequelize');
 
 const sequelize = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, {
     host: dbConfig.HOST,
@@ -28,4 +28,4 @@ db.bootcamps.belongsToMany(db.users, {
     foreignKey: "bootcamp_id",
 });
 
-module.exports = db
+module.exports = { db }
